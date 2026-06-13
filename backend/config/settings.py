@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_simplejwt',
     'core',
-    'firstapp',
+    'login_mohan',
 ]
 
 MIDDLEWARE = [
