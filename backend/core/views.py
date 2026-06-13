@@ -142,3 +142,11 @@ class DietPlanView(APIView):
             return Response(DietPlanSerializer(diet).data)
         return Response({'error': 'No diet plan found.'}, status=status.HTTP_404_NOT_FOUND)
 
+class DietPlanView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        diet = getattr(request.user, 'diet_plan', None)
+        if diet:
+            return Response(DietPlanSerializer(diet).data)
+        return Response({'error': 'No diet plan found.'}, status=status.HTTP_404_NOT_FOUND)
